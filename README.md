@@ -62,11 +62,6 @@ $ npm run test:cov
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 
@@ -78,3 +73,35 @@ npm i @nestjs/typeorm typeorm
 npm i pg
 npm i --save @nestjs/config
 npm i --save bcrypt @types/bcrypt
+npm install mysql --save
+
+## Migration related doubts
+ - 1. What we are trying to do? We generate migration based on our models
+ - 2. Why we need two different configurations? -one async and one is not
+ - 3. Make necessary edits to the config
+ - 4. Creare new file for typeorm migrations
+ - 5. Run typeorm CLI to register the config file
+ - 6. Delete all tables and  generate a new migration
+ - 7. See the new tables, the migration table, and the Migration file
+  - "typeorm:cli": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -f src/config/typeorm.config-migrations.ts",
+  - "migration:generate": "npm run typeorm:cli -- migration:generate -d src/database/migrations   -n",
+  - "migration:create": "npm run typeorm:cli -- migration:create -d src/database/migrations -n",
+  - "migration:run": "npm run typeorm:cli -- migration:run",
+  - "migration:revert": "npm run typeorm:cli -- migration:revert"
+## Migration setup, add all below files to package.json into script object
+
+- "typeorm:cli": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -f src/config/typeorm.config-migrations.ts",
+- "migration:generate": "npm run typeorm:cli -- migration:generate -d src/database/migrations -n",
+- "migration:create": "npm run typeorm:cli -- migration:create -d src/database/migrations -n",
+- "migration:run": "npm run typeorm:cli -- migration:run",
+- "migration:revert": "npm run typeorm:cli -- migration:revert",
+- "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config -n src/config/typeorm.config-migrations.ts",
+- "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed -n src/config/typeorm.   config-migrations.ts",
+- "db:refresh": "npm run typeorm:cli schema:drop && npm run migration:run && npm run seed:run"
+
+## Show migrations
+npm run typeorm:cli migration:show
+
+## Generate migrations
+ - npm run migration:generate BaseMigrations
+ - npm run migration:run

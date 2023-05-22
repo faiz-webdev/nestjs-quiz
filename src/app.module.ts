@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { QuizModule } from './modules/quiz/quiz.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { typeOrmConfigAsync } from './config/typeorm.config';
+import { typeOrmAsyncConfig } from './config/typeorm.config';
 import { ConfigModule } from '@nestjs/config';
 import { UserModule } from './modules/user/user.module';
 
@@ -11,7 +11,7 @@ import { UserModule } from './modules/user/user.module';
   imports: [
     QuizModule,
     ConfigModule.forRoot({ isGlobal: true }),
-    TypeOrmModule.forRootAsync(typeOrmConfigAsync),
+    TypeOrmModule.forRootAsync(typeOrmAsyncConfig),
     UserModule,
   ],
   controllers: [AppController],
