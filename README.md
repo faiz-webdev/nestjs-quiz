@@ -119,3 +119,6 @@ npm run typeorm:cli migration:show
 
 ## Swagger integration
   - npm install --save @nestjs/swagger
+
+## Typeorm pagination
+  - npm i nestjs-typeorm-paginate
