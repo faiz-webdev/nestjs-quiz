@@ -51,7 +51,4 @@ export class User extends BaseEntity {
     const salt = await bcrypt.genSalt();
     this.password = await bcrypt.hash(password || this.password, salt);
   }
-
-  //   @ManyToOne(() => Question, (question) => question.options)
-  //   question: Question;
 }

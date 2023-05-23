@@ -122,3 +122,12 @@ npm run typeorm:cli migration:show
 
 ## Typeorm pagination
   - npm i nestjs-typeorm-paginate
+
+## Typeorm seeder
+  - npm i typeorm-seeding
+  # To see seed command
+    - npm run seed:config
+  # To run seed
+    - npm run seed:run
+  # Generate fake users
+    - npm i @ngneat/falso
