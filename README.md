@@ -99,8 +99,15 @@ npm install mysql --save
 - "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed -n src/config/typeorm.   config-migrations.ts",
 - "db:refresh": "npm run typeorm:cli schema:drop && npm run migration:run && npm run seed:run"
 
-## Show migrations
-npm run typeorm:cli migration:show
+## Migrations commands
+  # Show migrations
+    - npm run typeorm migration:show
+  # To see the migrations all commands
+    - npm run typeorm
+  # Generate new migrations
+    npm run migration:generate -- db/migrations/NewMigrations
+  # Run the migration
+    npm run migration:run
 
 ## Generate migrations
  - npm run migration:generate BaseMigrations
