@@ -105,3 +105,10 @@ npm run typeorm:cli migration:show
 ## Generate migrations
  - npm run migration:generate BaseMigrations
  - npm run migration:run
+
+
+## JWT and Passport Setup
+ - npm i @nestjs/passport
+ - npm i --D @types/passport-local @types/passport
+ - sudo npm install passport-local --save
+ - npm i --save @nestjs/passport passport
