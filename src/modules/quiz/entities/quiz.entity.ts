@@ -6,32 +6,49 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 import { Question } from './question.entity';
+import { ApiProperty } from '@nestjs/swagger';
 
 @Entity('quizes')
 export class Quiz extends BaseEntity {
+  @ApiProperty({ description: 'Primary key as Quiz ID', example: 1 })
   @PrimaryGeneratedColumn({
     comment: 'the quiz unique identifier',
   })
   id: number;
 
+  @ApiProperty({
+    description: 'Title of the quiz',
+    example: 'Sample Laravel quiz',
+  })
   @Column({
     type: 'varchar',
     nullable: true,
   })
   title: string;
 
+  @ApiProperty({
+    description: 'Description of the quiz',
+    example: 'Lorem ipsum',
+  })
   @Column({
     type: 'text',
     nullable: true,
   })
   description: string;
 
+  @ApiProperty({
+    description: 'Quiz active or inactive state',
+    example: true,
+  })
   @Column({
     type: 'boolean',
     default: 1,
   })
   isActive: boolean;
 
+  @ApiProperty({
+    description: 'List of questions',
+  })
   @OneToMany(() => Question, (question) => question.quiz)
   questions: Question[];
 }

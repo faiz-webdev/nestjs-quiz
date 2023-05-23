@@ -15,10 +15,11 @@ import {
 import { QuizService } from '../services/quiz.service';
 import { CreateQuizDTO } from '../dto/CreateQuiz.dto';
 import { Quiz } from '../entities/quiz.entity';
-import { ApiSecurity, ApiTags } from '@nestjs/swagger';
+import { ApiSecurity, ApiTags, ApiCreatedResponse } from '@nestjs/swagger';
 import { IPaginationOptions, Pagination } from 'nestjs-typeorm-paginate';
 import { JwtAuthGuard } from 'src/modules/auth/jwt-auth.guard';
 import { ApiPaginatedResponse } from 'src/common/decorator/api-pagination.response';
+import { AdminRoleGuard } from 'src/modules/auth/admin-role.guard';
 
 @ApiTags('Quiz')
 @Controller('quiz')
@@ -46,11 +47,11 @@ export class QuizController {
   }
 
   @Post('/create')
+  @ApiCreatedResponse({ description: 'The quiz that got created', type: Quiz })
   @HttpCode(200)
   @UsePipes(ValidationPipe)
+  @UseGuards(AdminRoleGuard)
   async createQuiz(@Body() quizData: CreateQuizDTO) {
-    // console.log(__dirname + '/../**/*.entity{.ts, .js}');
-    // return { data: quizData };
     return await this.quizService.createQuiz(quizData);
   }
 }

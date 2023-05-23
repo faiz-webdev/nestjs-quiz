@@ -131,3 +131,5 @@ npm run typeorm:cli migration:show
     - npm i @ngneat/falso
   # To run seed
     - npm run seed:run
+  # To Refresh database
+    - npm run db:refresh
