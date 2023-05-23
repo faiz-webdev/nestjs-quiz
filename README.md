@@ -106,8 +106,11 @@ npm install mysql --save
     - npm run typeorm
   # Generate new migrations
     npm run migration:generate -- db/migrations/NewMigrations
+    npm run migration:generate -- src/database/migrations/NewMigrations
   # Run the migration
     npm run migration:run
+  # Add new columns to the migration
+    - npm run migration:generate -- src/database/migrations/AddNewLastNameColumn
 
 ## Generate migrations
  - npm run migration:generate BaseMigrations

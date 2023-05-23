@@ -21,6 +21,11 @@ export class User extends BaseEntity {
 
   @Column({
     type: 'varchar',
+  })
+  lastName: string;
+
+  @Column({
+    type: 'varchar',
     unique: true,
   })
   email: string;
