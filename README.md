@@ -115,3 +115,5 @@ npm install mysql --save
 ## Generate migrations
  - npm run migration:generate BaseMigrations
  - npm run migration:run
+## Revert migrations
+ - npm run migration:revert
