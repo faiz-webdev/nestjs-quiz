@@ -116,3 +116,6 @@ npm run typeorm:cli migration:show
 ## JWT setup
   - npm i @nestjs/jwt passport-jwt
   - npm i -D @types/passport-jwt
+
+## Swagger integration
+  - npm install --save @nestjs/swagger
