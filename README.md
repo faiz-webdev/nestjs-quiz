@@ -127,7 +127,7 @@ npm run typeorm:cli migration:show
   - npm i typeorm-seeding
   # To see seed command
     - npm run seed:config
-  # To run seed
-    - npm run seed:run
   # Generate fake users
     - npm i @ngneat/falso
+  # To run seed
+    - npm run seed:run
