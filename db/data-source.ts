@@ -1,6 +1,6 @@
 import { DataSource, DataSourceOptions } from 'typeorm';
 
-export const typeOrmConfigMigration: DataSourceOptions = {
+export const dataSourceOptions: DataSourceOptions = {
   type: 'mysql',
   host: process.env.DB_HOST,
   port: parseInt(process.env.DB_PORT, 10),
@@ -13,5 +13,5 @@ export const typeOrmConfigMigration: DataSourceOptions = {
   logging: true,
 };
 
-const dataSource = new DataSource(typeOrmConfigMigration);
+const dataSource = new DataSource(dataSourceOptions);
 export default dataSource;
