@@ -135,3 +135,5 @@ npm run typeorm:cli migration:show
     - npm run db:refresh
 ## Upload files
   - npm i -D @types/multer
+## Install event package
+    - npm i --save @nestjs/event-emitter
