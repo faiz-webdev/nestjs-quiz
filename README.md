@@ -133,3 +133,5 @@ npm run typeorm:cli migration:show
     - npm run seed:run
   # To Refresh database
     - npm run db:refresh
+  # Install event package
+    - npm i --save @nestjs/event-emitter
