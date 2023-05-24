@@ -133,3 +133,5 @@ npm run typeorm:cli migration:show
     - npm run seed:run
   # To Refresh database
     - npm run db:refresh
+## Upload files
+  - npm i -D @types/multer
